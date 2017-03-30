@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 
-import { CardsPage } from '../pages/cards/cards';
+import { CardsPage } from '../cards/cards';
 
 @Component({
   selector: 'page-home',
@@ -11,7 +11,14 @@ import { CardsPage } from '../pages/cards/cards';
 export class HomePage {
 
   constructor(public navCtrl: NavController) {
-    navCtrl.push(CardsPage);
+  
+  
+  }
+  
+  goToOtherPage() {
+    //push another page onto the history stack
+    //causing the nav controller to animate the new page in
+    this.navCtrl.push(CardsPage);
   }
 
 }
