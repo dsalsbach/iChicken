@@ -4,7 +4,7 @@ import { NavController } from 'ionic-angular';
 
 import { Cards } from '../cards/cards';
 
-import { Checklist } from '../checklist/checklist';
+import { BarcodeScanner } from 'ionic-native';
 
 @Component({
   selector: 'page-home',
@@ -13,7 +13,12 @@ import { Checklist } from '../checklist/checklist';
 export class HomePage {
 
   constructor(public navCtrl: NavController) {
-      this.navCtrl.push(Checklist);
-  }
-
+      BarcodeScanner.scan({formats:"QR_CODE"}).then((barcodeData) => {
+       // Success! Barcode data is here
+       //verify barcode data
+       this.navCtrl.push(CardsPage);
+      }, (err) => {
+          // An error occurred
+      });
+    }
 }
