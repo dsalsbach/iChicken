@@ -15,7 +15,7 @@ export class HomePage {
   
   }
   
-  goToOtherPage() {
+  goToCardsPage() {
     //push another page onto the history stack
     //causing the nav controller to animate the new page in
     this.navCtrl.push(CardsPage);
