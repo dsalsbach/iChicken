@@ -2,7 +2,9 @@
 
 import { NavController } from 'ionic-angular';
 
-import { Cards } from '../cards/cards'
+import { Cards } from '../cards/cards';
+
+import { Checklist } from '../checklist/checklist';
 
 @Component({
   selector: 'page-home',
@@ -11,7 +13,7 @@ import { Cards } from '../cards/cards'
 export class HomePage {
 
   constructor(public navCtrl: NavController) {
-      this.navCtrl.push(Cards);
+      this.navCtrl.push(Checklist);
   }
 
 }
