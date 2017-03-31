@@ -1,16 +1,31 @@
-import { Component } from '@angular/core';
+﻿﻿import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 
+
+
 @Component({
-  selector: 'page-checklist',
-  templateUrl: 'checklist.html'
+    selector: 'checklist-page',
+    templateUrl: 'checklist.html'
 })
+export class ChecklistPage
+{
 
-export class ChecklistPage {
+    constructor(public navCtrl: NavController)
+    {        
+    }
 
-  constructor(public navCtrl: NavController) {
-    
-  }
+    items = [
+        'Vervangen projector lamp',
+        'Calibreren lens',
+        'Vervangen batterijen',
+        'Billen vegen',
+        'Poten afstellen',
+        'Configureren resoluties'
+    ];
+
+    itemSelected(item: string) {
+        console.log("Selected Item", item);
+    }
 
 }

@@ -1,11 +1,16 @@
-<ion-header>
-  <ion-navbar>
+﻿<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
+      {{ item }}
+    </button>
+  </ion-list>
+</ion-content>
+
+﻿<ion-header>
+  <ion-navbar> 
     <ion-title>
-      iChicken
+      Checklists
     </ion-title>
   </ion-navbar>
 </ion-header>
-
-<ion-content padding>
-  
-</ion-content>
+<ion-content>

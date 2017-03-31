@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 
+import { FileOpener } from 'ionic-native';
+
+import { ChecklistPage } from '../checklist/checklist';
+
 @Component({
-  selector: 'page-cards',
-  templateUrl: 'cards.html'
+    selector: 'page-cards',
+    templateUrl: 'cards.html'
 })
 export class CardsPage {
 
@@ -32,6 +36,18 @@ export class CardsPage {
           
         });
   }
+    
+
+    openUserGuide() {
+        FileOpener.open('/sdcard/Epson_EMP-1707.pdf', 'application/pdf')
+            .then(() => console.log('File is opened'))
+            .catch(e => alert('Manual not found: ' + e.text));
+    }
+
+    goToChecklistPage()
+    {
+        this.navCtrl.push(ChecklistPage);
+    }
 
   toggleDetails(data) {
     if (data.showDetails) {
@@ -42,5 +58,4 @@ export class CardsPage {
         data.icon = 'md-remove';
     }
   }
-
-}
+}
