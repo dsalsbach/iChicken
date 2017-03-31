@@ -2,29 +2,44 @@
 
 import { NavController } from 'ionic-angular';
 
-import { Cards } from '../cards/cards';
-
-import { BarcodeScanner } from 'ionic-native';
+import { CardsPage } from '../cards/cards';
 
 import { BarcodeScanner } from 'ionic-native';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+    selector: 'page-home',
+    templateUrl: 'home.html'
 })
-export class HomePage {
+export class HomePage
+{
 
-  constructor(public navCtrl: NavController) {
-      BarcodeScanner.scan({formats:"QR_CODE"}).then((barcodeData) => {
-       // Success! Barcode data is here
-       //verify barcode data
-       this.navCtrl.push(CardsPage);
-      }, (err) => {
-          // An error occurred
-      });
+    constructor(public navCtrl: NavController)
+    {
+        
     }
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> Daniel
+
+    loadBarcodeScanner()
+    {
+        BarcodeScanner.scan({
+            formats: "QR_CODE"
+        })
+            .then((result) =>
+            {
+                if (!result.cancelled)
+                {
+                    this.navCtrl.push(CardsPage, {
+                        QRData: result.text
+                    });
+                }
+            })
+            .catch((err) =>
+            {
+                alert(err);
+            });
+    }
+
+    ionViewWillEnter()
+    {
+        this.loadBarcodeScanner();
+    }
+}
