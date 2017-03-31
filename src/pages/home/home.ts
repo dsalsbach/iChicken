@@ -6,6 +6,8 @@ import { Cards } from '../cards/cards';
 
 import { BarcodeScanner } from 'ionic-native';
 
+import { BarcodeScanner } from 'ionic-native';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -21,4 +23,8 @@ export class HomePage {
           // An error occurred
       });
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> Daniel
