@@ -7,7 +7,6 @@ import { ChecklistPage } from '../pages/checklist/checklist';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 
 @NgModule({
