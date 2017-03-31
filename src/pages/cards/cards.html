@@ -26,6 +26,34 @@
         <img src="http://static.hifi-forum.de/produkte/47235664/large/epson-emp-1707.jpg"/>
 
         <ion-card-content> 
+            
+            <ion-list>
+                <ion-item *ngFor="let d of data" (click)="toggleDetails(d)"><ion-icon color="default" item-right [name]="d.icon"></ion-icon>
+                    {{d.title}}
+                    <br />
+                    <div *ngIf="d.showDetails" style="font-size:12px; padding-bttom:20px;">
+                        <table style="width:100% padding-top:20px;">
+                            <tr>
+                                <td>Merk</td>
+                                <td>{{d.merk}}</td> 
+                            </tr>
+                            <tr>
+                                <td>Type</td>
+                                <td>{{d.type}}</td> 
+                            </tr>
+                            <tr>
+                                <td>Volg Nr.</td>
+                                <td>{{d.volgnr}}</td> 
+                            </tr>
+                            <tr>
+                                <td>Artikel</td>
+                                <td>{{d.artikel}}</td> 
+                            </tr>
+                        </table>
+                    </div>
+                </ion-item>
+            </ion-list>
+
             <ion-list>
                 <button ion-item>
                     <ion-icon name="book" item-left></ion-icon>
@@ -35,6 +63,7 @@
                 <button ion-item>
                     <ion-icon name="list" item-left></ion-icon>
                     Checklist
+                    <ion-icon name="ios-arrow-forward" item-right></ion-icon>
                 </button>
 
                 <button ion-item>
@@ -51,12 +80,12 @@
         
         <ion-row>
             <ion-col>
-                <button ion-button icon-left>
+                <button ion-button color="dark" icon-left>
                     &nbsp;<ion-icon name="star"></ion-icon>
                 </button>
             </ion-col>
             <ion-col>
-                <button ion-button icon-right>
+                <button ion-button color="dark" icon-right>
                     <ion-icon name="share-alt"></ion-icon>
                     <div>&nbsp;&nbsp;&nbsp;Share</div>
                 </button>
@@ -64,6 +93,11 @@
         </ion-row>
         
     </ion-card>
+
+    
+    
+
+    
     
 </ion-content>
 
